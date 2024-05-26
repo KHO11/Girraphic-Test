@@ -35,41 +35,24 @@ function App() {
     fetchData();
   }, []);
 
-   const jsonToCsv = () => {
-    const keys = Object.keys(getData[0]);
-    const csvRows = [];
+  const exportToCSV = () => {
+    const table = document.getElementById('athleteTable');
+    const rows = table.querySelectorAll('tr');
+    let csvContent = '';
 
-    // Add the headers
-    csvRows.push(keys.join(','));
+    rows.forEach(row => {
+      const cols = row.querySelectorAll('td, th');
+      const rowData = Array.from(cols).map(col => col.innerText).join(',');
+      csvContent += rowData + '\n';
+    });
 
-    // Add the data
-    for (const row of getData) {
-        const values = keys.map(key => {
-            const escaped = ('' + row[key]).replace(/"/g, '""');
-            return `"${escaped}"`;
-        });
-        csvRows.push(values.join(','));
-    }
-
-    return csvRows.join('\n');
-  }
-
-  const downloadCsv = (csvData, filename) => {
-    const blob = new Blob([csvData], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.setAttribute('hidden', '');
     a.setAttribute('href', url);
-    a.setAttribute('download', filename);
-    document.body.appendChild(a);
+    a.setAttribute('download', 'race_results.csv');
     a.click();
-    document.body.removeChild(a);
-  }
-
-  const exportCSV = () => {
-    const csv = jsonToCsv(getData);
-    downloadCsv(csv, 'race_results.csv');
-  }
+  };
 
   const sortByColumn = (key) => {
     let direction = 'ascending';
@@ -116,7 +99,7 @@ function App() {
       </table>
       <br/>
       <div className='bottomButton'>
-        <button className="exportCSV" onClick={exportCSV} id="export-csv">Download CSV</button>
+        <button className="exportCSV" onClick={exportToCSV} id="export-csv">Download CSV</button>
       </div>
     </div>
   );
