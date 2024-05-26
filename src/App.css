@@ -11,10 +11,10 @@ body {
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 76%;
+  margin-left: auto;
+  margin-right: auto;
   min-width: 750px;
-  margin: 0 0;
-  padding: 0;
   border: 1px solid black;
 }
 
