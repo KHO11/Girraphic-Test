@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [getData, setData] = useState([]);
+  const [jsonData, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: 'bib', direction: 'ascending' });
@@ -59,7 +59,7 @@ function App() {
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
       direction = 'descending';
     }
-    const sortedData = [...getData].sort((a, b) => {
+    const sortedData = [...jsonData].sort((a, b) => {
       if (a[key] < b[key]) {
         return direction === 'ascending' ? -1 : 1;
       }
@@ -86,7 +86,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-        {getData.map((athlete) => (
+        {jsonData.map((athlete) => (
             <tr key={athlete.athleteid}>
               <td>{athlete.rank}</td>
               <td>{athlete.firstname + ' ' + athlete.surname}</td>
