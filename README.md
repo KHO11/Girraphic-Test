@@ -8,6 +8,6 @@ The up arrow next to Rank and bib number headings are to sort its data in ascend
 
 ### Unit testing
 
-Four unit test cases in App.test.js in src folder
+Four unit test cases in the App.test.js file of the src folder
 
 Using React Testing Library
