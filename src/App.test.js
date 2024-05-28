@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
-
 test('download CSV file button showing', () => {
   render(<App />);
   const button = screen.getByRole('button', {name: 'Download CSV'});
