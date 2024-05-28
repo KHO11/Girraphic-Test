@@ -1,3 +1,7 @@
+### Tech used
+
+React, HTML, CSS and JavaScript
+
 ### Deployment
 
 https://girraphic-test.netlify.app/
