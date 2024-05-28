@@ -65,14 +65,14 @@ div.bottomButton {
 
 .up-arrow {
   width: 0;
-    height: 0;
-    border: solid 5px transparent;
-    background: transparent;
-    border-bottom: solid 7px black;
-    border-top-width: 0;
-    cursor: pointer;
-    position: fixed;
-    margin-left: 5px;
-    margin-top: 5px;
+  height: 0;
+  border: solid 5px transparent;
+  background: transparent;
+  border-bottom: solid 7px black;
+  border-top-width: 0;
+  cursor: pointer;
+  position: fixed;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
